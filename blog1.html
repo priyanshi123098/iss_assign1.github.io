@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        #likeButton {
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+        #like {
+            height: 3%;
+            width: 3%;
+        }
+        #likeCount {
+            margin-top: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #comments {
+            margin-top: 20px;
+        }
+        .comment {
+            margin-bottom: 10px;
+        }
+        .transparent-box {
+            background-color: rgba(255, 255, 255, 0.5); 
+            border: 2px solid #333; 
+            padding: 20px; 
+            width: 300px;
+            margin: 20px auto; 
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body style="padding-right:5%; padding-left:5%; font-family: Arial, sans-serif;background-color:burlywood;font-family: 'Podkova', serif;">
+    <h1 style="margin-top:5%; margin-bottom:5%">ENGINEERING AS A DEGREE</h1>
+    
+        
+        <b style="font-size:120%">Introduction:</b>
+        <p style="font-size:120%">
+            Embarking on the journey to attain an engineering degree is a transformative experience that opens doors to a
+        world of innovation, problem-solving, and endless possibilities. Engineering, as a discipline, not only equips
+        individuals with technical expertise but also nurtures creativity, critical thinking, and adaptability. In this
+        blog, we will explore the multifaceted aspects of pursuing an engineering degree and the profound impact it can
+        have on one's personal and professional growth.
+        </p>
+
+        <b style="font-size:120%">The Foundation of Problem-Solving:</b>
+        <p style="font-size:120%">
+            At its core, engineering is about solving real-world problems. The curriculum of an engineering degree is
+        designed to challenge students to think analytically and develop practical solutions. The problem-solving skills
+        cultivated during an engineering program extend beyond the classroom, becoming a valuable asset in various
+        aspects of life. Whether it's tackling complex engineering challenges or navigating the intricacies of daily
+        life, an engineering degree provides a solid foundation for addressing problems methodically and effectively.
+
+        </p>
+        <b style="font-size:120%">Diverse Specializations:</b>
+        <p style="font-size:120%">
+            One of the distinctive features of an engineering degree is the vast array of specializations available. From
+        civil and mechanical engineering to computer science and biomedical engineering, students can choose a path that
+        aligns with their interests and passion. This diversity not only ensures that there is a field for every
+        inclination but also fosters interdisciplinary collaboration. The ability to work across disciplines is a key
+        advantage in the ever-evolving landscape of technology and innovation.
+        </p>
+
+        <b style="font-size:120%">Innovation and Creativity:</b>
+        <p style="margin-bottom:3%;font-size:120%;">
+            Engineering is synonymous with innovation. Throughout their academic journey, engineering students are
+        encouraged to push the boundaries of what is possible. The constant pursuit of improvement and optimization
+        drives creativity and ingenuity. Whether it's designing sustainable infrastructure, developing cutting-edge
+        technologies, or creating efficient processes, engineers play a pivotal role in shaping the future through their
+        innovative endeavors.
+        
+        </p>
+        <button id="likeButton" onclick="likePost()"><img  id="like" src="like.png"></button>
+        <p id="likeCount" style="font-size:80%">0 Likes</p>
+       
+        <div id="comments" style="text-align:center; margin-bottom:7.5%; font-size:120%;">
+            <h2 style="margin-bottom:1%;">Comments</h2>
+            <input type="text" id="commentInput" placeholder="Enter your comment" style="margin-bottom:5%;font-size:100%">
+            <button onclick="postComment()" style="margin-bottom:5%; font-size:100%">Post Comment</button>
+            <div class="transparent-box">
+                <p class="box-text"><div id="commentList"></div></p>
+            </div>
+            
+        </div>
+    
+</body>
+<script>
+    let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
+
+    function likePost() {
+        likeCount++;
+        updateLikeCount();
+        localStorage.setItem('likeCount', likeCount);
+    }
+
+    function updateLikeCount() {
+        const likeCountElement = document.getElementById('likeCount');
+        likeCountElement.innerHTML = likeCount === 1 ? '1 Like' : likeCount + ' Likes';
+    }
+    window.onload = updateLikeCount;
+    let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+        function handleButtonClick() {
+           
+            alert('Button clicked!');
+        }
+
+        function postComment() {
+            const commentInput = document.getElementById('commentInput');
+            const commentList = document.getElementById('commentList');
+
+            const commentText = commentInput.value.trim();
+            if (commentText !== '') {
+                comments.push(commentText);
+                updateCommentList();
+                commentInput.value = ''; 
+                updateLocalStorage();
+            }
+        }
+
+        function updateCommentList() {
+            const commentList = document.getElementById('commentList');
+            commentList.innerHTML = '';
+
+            comments.forEach((comment, index) => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `<strong>Comment ${index + 1}:</strong> ${comment}`;
+                commentList.appendChild(commentElement);
+            });
+        }
+
+        function updateLocalStorage() {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Display initial comments on page load
+        updateCommentList();
+</script>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        #likeButton {
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        #like {
+            height: 3%;
+            width: 3%;
+        }
+
+        #likeCount {
+            margin-top: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #comments {
+            margin-top: 20px;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+        }
+
+        .transparent-box {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 2px solid #333;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body
+    style="padding-right:5%; padding-left:5%; font-family: Arial, sans-serif;background-color:burlywood;font-family: 'Podkova', serif;">
+    <h1 style="margin-top:5%; margin-bottom:5%">BHARATNATYAM: THE TIMELESS BEAUTY OF INDIA'S CLASSICAL DANCE</h1>
+
+
+    <b style="font-size:120%">Introduction:</b>
+    <p style="font-size:120%">
+        Bharatanatyam, often hailed as the embodiment of grace, rhythm, and storytelling, stands as a cornerstone of
+        India's rich cultural heritage. Rooted in tradition yet evolving with the times, Bharatanatyam is more than just
+        a dance form - it's a profound expression of emotions, narratives, and spirituality. In this blog, we delve into
+        the captivating world of Bharatanatyam, exploring its origins, key elements, and enduring significance.
+    </p>
+
+    <b style="font-size:120%">Expressive Abhinaya:</b>
+    <p style="font-size:120%">
+        One of the distinctive features of Bharatanatyam is its emphasis on abhinaya, the art of expression. Dancers use
+        intricate hand gestures, facial expressions, and body movements to convey a wide range of emotions and
+        narratives. The mudras (hand gestures) serve as a unique language, allowing the dancer to communicate complex
+        stories, mythological tales, and spiritual concepts with incredible precision. The interplay of rhythm and
+        expression creates a mesmerizing spectacle that transcends linguistic barriers.
+
+    </p>
+    <b style="font-size:120%">Technical Prowess - Nritta and Nritya:</b>
+    <p style="font-size:120%">
+        Bharatanatyam seamlessly blends two essential components – Nritta and Nritya. Nritta refers to the purely
+        rhythmic and abstract aspects of the dance, showcasing intricate footwork, precise body movements, and rhythmic
+        patterns. Nritya, on the other hand, encompasses the expressive and narrative elements, where the dancer
+        communicates stories, themes, and emotions through abhinaya. The synthesis of Nritta and Nritya showcases the
+        dancer's technical prowess and artistic finesse.
+    </p>
+
+    <b style="font-size:120%">Cultural Relevance and Global Appeal:</b>
+    <p style="margin-bottom:3%;font-size:120%;">
+        While deeply rooted in Indian culture, Bharatanatyam has transcended geographical boundaries, captivating
+        audiences worldwide. Its universal themes, evocative storytelling, and mesmerizing movements have contributed to
+        its global appeal. Bharatanatyam serves as a bridge between tradition and modernity, preserving ancient
+        narratives while adapting to contemporary sensibilities. International practitioners and enthusiasts further
+        contribute to the global recognition of Bharatanatyam as a revered art form.
+
+    </p>
+    <button id="likeButton" onclick="likePost()"><img id="like" src="like.png"></button>
+    <p id="likeCount" style="font-size:80%">0 Likes</p>
+
+    <div id="comments" style="text-align:center; margin-bottom:7.5%; font-size:120%;">
+        <h2 style="margin-bottom:1%;">Comments</h2>
+        <input type="text" id="commentInput" placeholder="Enter your comment" style="margin-bottom:5%;font-size:100%">
+        <button onclick="postComment()" style="margin-bottom:5%; font-size:100%">Post Comment</button>
+        <div class="transparent-box">
+            <p class="box-text">
+            <div id="commentList"></div>
+            </p>
+        </div>
+
+    </div>
+
+</body>
+<script>
+    let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
+
+    function likePost() {
+        likeCount++;
+        updateLikeCount();
+        localStorage.setItem('likeCount', likeCount);
+    }
+
+    function updateLikeCount() {
+        const likeCountElement = document.getElementById('likeCount');
+        likeCountElement.innerHTML = likeCount === 1 ? '1 Like' : likeCount + ' Likes';
+    }
+    window.onload = updateLikeCount;
+    let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    function handleButtonClick() {
+
+        alert('Button clicked!');
+    }
+
+    function postComment() {
+        const commentInput = document.getElementById('commentInput');
+        const commentList = document.getElementById('commentList');
+
+        const commentText = commentInput.value.trim();
+        if (commentText !== '') {
+            comments.push(commentText);
+            updateCommentList();
+            commentInput.value = '';
+            updateLocalStorage();
+        }
+    }
+
+    function updateCommentList() {
+        const commentList = document.getElementById('commentList');
+        commentList.innerHTML = '';
+
+        comments.forEach((comment, index) => {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            commentElement.innerHTML = `<strong>Comment ${index + 1}:</strong> ${comment}`;
+            commentList.appendChild(commentElement);
+        });
+    }
+
+    function updateLocalStorage() {
+        localStorage.setItem('comments', JSON.stringify(comments));
+    }
+
+    // Display initial comments on page load
+    updateCommentList();
+</script>
+
+</html>

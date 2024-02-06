@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="style_light.css">
+    <!-- new -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Podkova:wght@500&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior:smooth;
+        }
+        .button:hover { 
+            transform: scale(1.1); 
+        } 
+        .welcome {
+        animation: welcomeDance 2s infinite ;
+        white-space: nowrap;
+        overflow: hidden;
+        }
+        @keyframes welcomeDance {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        25%, 75% {
+            transform: rotate(-10deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        }
+        
+    </style>
+</head>
+
+<body style="font-family: 'Balsamiq Sans', sans-serif;">
+    <header id="taskbar" style="width:100%; position:fixed;">
+        <a href="#head1">|About Me|</a>
+        <a href="#head2">|Educational Background|</a>
+        <a href="#head3">|Achievements|</a>
+        <a href="#head4">|Skills|</a>
+        <a href="#head5">|Blogs|</a>
+        
+    </header>
+    <div class="uppersection">
+        <button id="toggle" class="button" onclick="toggle()" style="text-align:right;font-family: 'Balsamiq Sans', sans-serif;margin-top:5%;">Change Mode</button>
+        <div id="welcome" class="welcome" style="margin-bottom:7.5%">Hey Everyone!</div>
+        <p style="font-size:75px">Dive in to know more about mee!!</p>
+        <button id="resume" class="button" onclick="resume()" style="font-family: 'Balsamiq Sans', sans-serif;margin-bottom:4%;">Click here to view my resume</button>
+    </div>
+    
+
+    <!-- ABOUT ME -->
+    <div id="section1" class="sections">
+        <h1 id="head1" class="headers">About Me</h1>
+        <div class="about_me">
+            <p id="intro_para" style="padding-right:10%;font-size:120%; line-height:150%">Greetings to everyone out there!
+                <br> I am Priyanshi Gupta, <br>a student at IIIT Hyderabad
+                and I am <br>currently persuing a Bachelor's degree in
+                <br> Computer Science and Engineering.<br>
+                I am a classical dancer <br>
+                and an oratory enthusiast.
+                <br>
+                I look forward to many new opportunities and <br>learning experiences that would
+                <br>unleash my true potential and <br> help me discover my true self.
+                <br> I wish to make
+                long lasting friends<br> and memories to cherish <br>
+                for a lifetime!!!!!
+
+            </p>
+            <img src="my_image_new.jpeg" id="profile">
+        </div>
+
+    </div>
+
+    <!-- EDUCATIONAL BACKGROUND  -->
+    <div id="section2" class="sections">
+        <h1 id="head2" class="headers">Educational Background</h1>
+        <div style="display:flex">
+            <div style="text-align:center">
+                <table class="edu_background_table" style="margin-bottom:10%; width:100%;">
+                    <colgroup>
+                        <col style="width: 20%;"> <!-- Adjust the width of the first column to 20% -->
+                        <col style="width: 20%;"> <!-- Adjust the width of the second column to 40% -->
+                        <col style="width: 30%;"> <!-- Adjust the width of the third column to 40% -->
+                        <col style="width: 30%;">
+                    </colgroup>
+                    <tr>
+                        <th>Year of Passing</th>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td>10th</td>
+                        <td>Bal Bharati Public School, Pitampura</td>
+                        <td>96.6</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>12th</td>
+                        <td>Bal Bharati Public School, Pitampura</td>
+                        <td>95.6</td>
+                    </tr>
+                    <tr>
+                        <td>Present</td>
+                        <td>B.Tech in CSE</td>
+                        <td>IIIT, Hyderabad</td>
+                        <td>-</td>
+        
+                    </tr>
+                </table>
+            </div>
+        <img src="edu_new.jpg" style="text-align:right;margin-left:10%; height:100%; width:35%; border-radius:50%;">
+    </div>
+        <div class="school_college_image">
+            <img src="school.jpeg" id="school_image">
+            <img src="iiith.png" id="college_image">
+        </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div id="section3" class="sections">
+        <h1 id="head3" class="headers">Achievements</h1>
+        
+        <table class="achievements_table">
+            <colgroup>
+                <col style="width: 70%;"> 
+                <col style="width: 30%;"> 
+                
+            </colgroup>
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>YEAR</th>
+            </tr>
+            <tr>
+                <td>Finished my degree in Bharatnatyam
+                    after 8 years of professional training</td>
+                <td>2021</td>
+            <tr>
+                <td>NTSE Stage-1 Qualifier (State Rank-29)</td>
+                <td>2021</td>
+            </tr>
+            <tr>
+                <td>KVPY Scholar</td>
+                <td>2022</td>
+            </tr>
+            <tr>
+                <td>JEE ADVANCE AIR- 1984</td>
+                <td>2023</td>
+            </tr>
+            <tr>
+                <td>JEE MAINS Percentile: 99.90, AIR- 1253</td>
+                <td>2023</td>
+            </tr>
+            </tr>
+        </table>
+    </div>
+
+
+    <!-- SKILLS -->
+    <div id="section4" class="sections" style="text-align:center;">
+        <h1 id="head4" class="headers">Skills</h1>
+        <div style="display:flex">
+            <ul style="list-style-position: inside; text-align:left; font-size:200%; line-height:200%;margin-left:10%; width:40%;" type="square">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JAVASCRIPT</li>
+                <li>Professional Bharatnatyam dancer</li>
+                <li>Public speaking and oratory</li>
+                <li>Can overthink about anything</li>
+            </ul>
+            <img src="skills.webp" style="border-radius:50%;text-align:right;width:50%;height:50%;margin-right:5%">
+        </div>
+        
+    </div>
+    <!-- BLOGS -->
+    <div id="section5" class="sections">
+        <h1 id="head5" class="headers">Blogs</h1>
+        <div id="blogs" style="display:flex;color:black;">
+            
+            <div class="transparent-box" style="margin-left:0.5%;">
+            <a href="blog1.html" style="font-size:200%; " id="blog1" target="_blank">ENGINEERING AS A DEGREE</a>
+            <p class="box-text" style="font-size:125%">Embarking on the journey to attain an engineering degree is a transformative experience that opens doors to a
+                world of innovation, problem-solving, and endless possibilities. Engineering, as a discipline, not only equips
+                individuals with technical expertise but also nurtures creativity, critical thinking, and adaptability. In this
+                blog, we will explore the multifaceted aspects of pursuing an engineering degree and the profound impact it can
+                have on one's personal and professional growth....</p>
+            </div>
+            <div class="transparent-box" style="margin-left:1%">
+                <a href="blog2.html" style="font-size:200%;" id="blog2" target="_blank">BHARATNATYAM: THE TIMELESS BEAUTY OF INDIA'S CLASSICAL DANCE</a>
+                <p class="box-text" style="font-size:125%">Bharatanatyam, often hailed as the embodiment of grace, rhythm, and storytelling, stands as a cornerstone of
+                    India's rich cultural heritage. Rooted in tradition yet evolving with the times, Bharatanatyam is more than just
+                    a dance form - it's a profound expression of emotions, narratives, and spirituality. In this blog, we delve into
+                    the captivating world of Bharatanatyam, exploring its origins, key elements, and enduring significance....</p>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script src="code.js">
+    </script>
+</body>
+<footer id="footer">
+    <h1>Connect with me!</h1>
+    <div id="social-icons">
+        <a href="https://github.com/priyanshi123098" target="_blank"><img src="github.png" id="github" class="button" alt="GitHub"></a>
+        <a href="https://www.facebook.com/profile.php?id=100095555282756&sfnsn=wiwspwa&mibextid=RUbZ1f" target="_blank"><img src="facebook.png" id="facebook" class="button" alt="Facebook"></a>
+        <a href="https://www.instagram.com/priyanshigupta.098/" target="_blank"><img src="Instagram.webp" id="instagram" class="button" alt="Instagram"></a> 
+    </div>
+    <p>&copy; priyanshi gupta</p>
+</footer>
+
+</html>
